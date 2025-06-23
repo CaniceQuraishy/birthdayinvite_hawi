@@ -7,8 +7,8 @@
 body, html {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  background: linear-gradient(to bottom, #ffdde1, #fbb5c1);
-  color: #2a2a2a;
+  background: linear-gradient(to bottom, hsl(221, 95%, 29%), #6485cc);
+  color: #ffffff;
   scroll-behavior: smooth;
   height: 100%;
 }
@@ -28,32 +28,27 @@ section {
   text-align: center;
 }
 
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  z-index: 0;
-  pointer-events: none;
+.photo-hero {
+  background-image: url("media/background_photo.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-overlay {
   position: relative;
   z-index: 2;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 40px;
+  padding: 50px;
   border-radius: 20px;
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    transform 0.8s ease,
-    opacity 0.8s ease,
-    background-color 0.6s ease;
+  transition: transform 0.8s ease, opacity 0.8s ease, background-color 0.6s ease;
   max-width: 700px;
   width: 90%;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  backdrop-filter: blur(4px);
+  color: #fff;
 }
 
 .hero-overlay.show {
@@ -64,13 +59,20 @@ section {
 .hero-overlay:hover,
 .hero-overlay:focus-within {
   background-color: #ffffff;
+  color: #2a2a2a;
 }
 
 h1 {
   font-family: 'Pacifico', cursive;
-  font-size: 2.8em;
+  font-size: 3em;
   color: #324de0;
+  text-shadow:
+    -1px -1px 0 #ffffff,
+     1px -1px 0 #ffffff,
+    -1px  1px 0 #ffffff,
+     1px  1px 0 #ffffff;
 }
+
 
 .details, .rsvp {
   min-height: 100vh;
@@ -80,18 +82,19 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #fbb5c1, #ffe3ec);
+  background: linear-gradient(to bottom, hsl(221, 95%, 29%), #6485cc);
 }
 
 .details h2, .rsvp h2 {
   font-size: 2.2em;
-  color: #324de0;
+  color: #90c5ff;
   margin-bottom: 20px;
 }
 
 .details p, .rsvp p {
   margin: 8px 0;
   font-size: 1.1em;
+  color: #fff;
 }
 
 .activities {
@@ -99,6 +102,7 @@ h1 {
   font-size: 1em;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 .map {
@@ -117,6 +121,12 @@ form {
   align-items: center;
   gap: 15px;
   margin-top: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  color: #fff;
 }
 
 input, button {
@@ -126,18 +136,28 @@ input, button {
   border: 1px solid #ccc;
   width: 100%;
   max-width: 350px;
+  background: white;
+  color: #000;
 }
 
 button {
-  background-color: #324de0;
-  color: #fff;
+  background-color: #3a86ff;
+  color: white;
   border: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  border-radius: 12px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2f6ec9;
 }
 
 .thank-you {
   display: none;
-  color: green;
+  color: #90ff90;
   font-weight: bold;
   margin-top: 20px;
 }
@@ -147,6 +167,17 @@ button {
   bottom: 20px;
   right: 20px;
   z-index: 100;
+}
+
+#musicToggle {
+  background: #3a86ff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Mobile arrow hint */
@@ -182,15 +213,4 @@ button {
 
 .music-control.music-started::after {
   display: none;
-}
-
-#musicToggle {
-  background: #d6336c;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 8px;
-  font-size: 1em;
-  cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
